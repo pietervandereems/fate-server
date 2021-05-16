@@ -1,0 +1,56 @@
+{
+  "name": "fate-server",
+  "version": "1.0.0",
+  "description": "Server part of fate-player",
+  "main": "fate-server.js",
+  "scripts": {
+    "lint": "ts-standard . && speccy lint src/openapi.yaml",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "NODE_ENV=development webpack --watch",
+    "start:dev": "cp src/openapi.yaml dist/. && NODE_ENV=development nodemon dist/fate-server.js",
+    "build": "NODE_ENV=production webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/pietervandereems/fate-server.git"
+  },
+  "keywords": [
+    "Typescript",
+    "Fate",
+    "CouchDB"
+  ],
+  "engines": {
+    "node": "14"
+  },
+  "ts-standard": {
+    "ignore": [
+      "dist"
+    ]
+  },
+  "author": "Pieter van der Eems",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/pietervandereems/fate-server/issues"
+  },
+  "homepage": "https://github.com/pietervandereems/fate-server#readme",
+  "devDependencies": {
+    "@tsconfig/node14": "^1.0.0",
+    "@types/express": "^4.17.11",
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "express-openapi-validator": "^4.12.10",
+    "nodemon": "^2.0.7",
+    "source-map-loader": "^2.0.1",
+    "speccy": "^0.11.0",
+    "ts-loader": "^9.1.2",
+    "ts-standard": "^10.0.0",
+    "webpack": "^5.37.0",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-node-externals": "^3.0.0",
+    "webpack-shell-plugin-next": "^2.2.2",
+    "dotenv": "^9.0.2",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {  }
+}
