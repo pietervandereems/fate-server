@@ -1,0 +1,9 @@
+{
+  "watch": [
+    "dist/fate-server.js",
+    "dist/openapi.yaml"
+  ],
+  "env": {
+    "NODE_ENV": "development"
+  }
+}

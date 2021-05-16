@@ -7,7 +7,7 @@
     "lint": "ts-standard . && speccy lint src/openapi.yaml",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "NODE_ENV=development webpack --watch",
-    "start:dev": "cp src/openapi.yaml dist/. && NODE_ENV=development nodemon dist/fate-server.js",
+    "start:dev": "cp src/openapi.yaml dist/. && NODE_ENV=development nodemon --cwd dist fate-server.js",
     "build": "NODE_ENV=production webpack"
   },
   "repository": {
