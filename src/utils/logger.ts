@@ -6,7 +6,7 @@ const logError = (...args: any): void => {
 }
 
 const debug = (...args: any): void => {
-  if (process.env.LOG_LEVEL === LogLevel.DEBUG) {
+  if (process.env.LOG_LEVEL?.toUpperCase() === LogLevel.DEBUG) {
     console.debug(new Date(), ...args)
   }
 }
@@ -18,7 +18,7 @@ const info = (...args: any): void => {
 }
 
 const network = (req: Request, _res: Response, next: NextFunction): void => {
-  debug('Request', req)
+  debug('Request', { method: req.method, path: req.path, body: req.body })
   next()
 }
 
