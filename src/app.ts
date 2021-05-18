@@ -5,12 +5,14 @@ import errorHandler from './middleware/errorHandler'
 import * as OpenApiValidator from 'express-openapi-validator'
 import { network } from './utils/logger'
 import gameRouter from './controllers/game.controller'
+import { checkToken } from './middleware/authorization'
 
 const app = express()
 // patchRouterParam()
 
 app.use(express.json())
 app.use(network)
+app.use(checkToken)
 
 // -- unprotected handlers go here
 // -- END unprotected handlers
