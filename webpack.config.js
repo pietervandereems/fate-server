@@ -40,10 +40,13 @@ module.exports = {
         blocking: true,
         parallel: false
       },
-      onBuildEnd: {
-        scripts: ['npm run start:dev'],
+      onDoneWatch: {
+        scripts: ['echo "===> onDoneWatch"', 'npm run start:dev'],
         blocking: false,
         parallel: true
+      },
+      onBeforeNormalRun: {
+        scripts: ['echo "===> onBeforeNormalRun"'] // FOr some reason this is needed otherwise onDoneWatch will be executed on a normal build
       }
     })
   ]
