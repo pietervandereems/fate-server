@@ -17,7 +17,7 @@ const errorHandler = (err: requestError, _request: Request, response: Response, 
   if (err.isAxiosError) {
     return respond({
       ...msg,
-      title: 'Request to MDG failed',
+      title: 'Request to Database failed',
       status: err.response?.status ?? 400
     })
   }
