@@ -20,12 +20,20 @@ servers:
       basePath:
         default: v1
 paths:
-  "/games/subscribe":
-    get:
-      description: Just a test
-      operationId: games_subscribe_get
+  "/games/subscribe/{gameId}":
+    post:
+      description: Subscribe to a game
+      operationId: games_subscribe_post
       tags:
         - Game
+      parameters:
+        - in: path
+          name: gameId
+          schema:
+            type: string
+            pattern: '^game_[a-zA-Z0-9]+$'
+          required: true
+          description: ID of the game to Subscribe to
       responses:
         "200":
           description: OK
