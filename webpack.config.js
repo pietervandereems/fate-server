@@ -1,18 +1,21 @@
 const path = require('path')
 const nodeExternals = require('webpack-node-externals')
 const WebpackShellPluginNext = require('webpack-shell-plugin-next')
+const webpack = require('webpack')
 
 module.exports = {
   entry: './src/fate-server.ts',
   output: {
     filename: 'fate-server.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    devtoolModuleFilenameTemplate: '[absolute-resource-path]'
   },
   devServer: {
     contentBase: './dist'
   },
   // Enable sourcemaps for debugging webpack's output.
-  devtool: 'source-map',
+  devtool: 'eval-source-map',
+  mode: 'development',
   externals: [nodeExternals()],
   resolve: {
     extensions: ['.tsx', '.ts', '.js']
@@ -34,6 +37,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.SourceMapDevToolPlugin({}),
     new WebpackShellPluginNext({
       onBuildStart: {
         scripts: ['echo "===> Starting packing with WEBPACK 5"'],
