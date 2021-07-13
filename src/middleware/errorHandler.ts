@@ -47,6 +47,18 @@ const errorHandler = (err: requestError, _request: Request, response: Response, 
         title: 'No AuthInfo',
         status: ErrorStatuses.noAuthInfo
       })
+    case 'authError':
+      return respond({
+        ...msg,
+        title: 'Authentication error',
+        status: ErrorStatuses.noAuthInfo
+      })
+    case 'Access Denied':
+      return respond({
+        ...msg,
+        title: 'Acces Denied',
+        status: ErrorStatuses.accessDeniedIP
+      })
     default:
       return respond({
         ...msg,
