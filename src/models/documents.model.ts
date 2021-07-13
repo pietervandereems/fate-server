@@ -39,11 +39,13 @@ interface GameDocument {
 type Documents = GameDocument | ReplicatorDocument
 
 type GameId = string
+type UserId = string
 
 export {
   ReplicatorDocument,
   GameDocument,
   Documents,
   GameId,
+  UserId,
   SelectorTypes
 }
