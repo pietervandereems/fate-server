@@ -13,7 +13,7 @@ gameRouter.post('/subscribe/:id', asyncMiddleware(async (req: express.Request, r
     throw createError({
       name: 'Bad Request',
       path: req.path,
-      errors: { message: 'The supplied id is not the id of a game' }
+      errors: [{ message: 'The supplied id is not the id of a game' }]
     })
   }
 
